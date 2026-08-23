@@ -67,8 +67,7 @@
   (setq prefix-help-command #'embark-prefix-help-command)
 
   (when (require 'embark-consult nil :noerror)
-    (with-eval-after-load 'embark-consult
-      (add-hook 'embark-collect-mode-hook #'consult-preview-at-point-mode))))
+    (add-hook 'embark-collect-mode-hook #'consult-preview-at-point-mode)))
 
 
 ;;; Corfu
