@@ -145,18 +145,7 @@ Depends on having `pdf-tools'."
     (message "latex executable not found")))
 (add-hook 'tex-mode-hook #'crafted-writing-tex-warning-if-no-latex-executable)
 
-(when (and (executable-find "latex")
-           (executable-find "latexmk"))
-  (with-eval-after-load 'latex
-    (when (require 'auctex-latexmk nil 'noerror)
-      (with-eval-after-load 'auctex-latexmk
-        (auctex-latexmk-setup)
-        (customize-set-variable 'auctex-latexmk-inherit-TeX-PDF-mode t))
 
-      (defun crafted-writing-tex-make-latexmk-default-command ()
-        "Set `TeX-command-default' to \"LatexMk\"."
-        (setq TeX-command-default "LatexMk"))
-      (add-hook 'TeX-mode-hook #'crafted-writing-tex-make-latexmk-default-command))))
 
 
 ;;; Markdown
